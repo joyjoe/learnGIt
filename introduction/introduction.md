@@ -15,8 +15,12 @@ git clone <remote address>
 git add <file>
 git add .
 
-### 暂存区到版本库
+### 提交到版本库
+提交到版本库分两种情形
+1. 将工作区中的文件修改内容保存在暂存区中之后再提交到版本库中
 使用命令 git commit -m ''
+2. 直接将工作区中的文件修改内容跳过暂存区而直接提交到版本库中
+使用命令 git commit -a -m ''
 
 ## 如何查看各个区域之间的差异
 ### 查看工作区与暂存区之间的差异
@@ -28,9 +32,6 @@ git add .
 
 ### 查看工作区与版本库之间的差异
 使用命令 git diff <branchName>
-
-## 提交到版本库
-使用命令 git commit -m ''
 
 ## git的撤销
 撤销分为三种情形
@@ -61,5 +62,25 @@ git add .
 使用命令 git checkout commitid <file>
 2. 将工作区中的所有文件的内容还原为某个提交版本
 使用命令 git reset --hard commitid
+HEAD 表示当前指针头部的commitid
+HEAD^ 表示当前指针头部沿着提交链条往前移动一次
+HEAD~ 表示当前指针头部沿着提交链条往前移动一次
+HEAD~n 表示当前指针头部沿着提交链条往前移动n次
 3. 查看最新的git提交操作
 使用命令 git reflog
+
+## 代码上传
+如何将代码上传到github的远程仓库中
+使用命令 git push
+先通过 git remote -v查看远程仓库信息
+git remote 查看远程仓库的名字
+再通过git push <repository> <branch>
+将本地branch分支上的内容上传到远程仓库中
+
+## 从远程仓库如何拉取新的更新代码
+使用命令 git fetch
+使用该命令之后接着使用 git diff <local-branch> <repository/branch>查看本地代码与远程仓库代码的区别
+通过手动修改代码解决两者之间的冲突
+最后使用命令 git merge <repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件
+
+使用命令 git pull
