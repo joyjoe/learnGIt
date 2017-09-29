@@ -91,14 +91,22 @@ git add .
 ## git的还原
 1. 将工作区中的某个文件的内容还原为某个提交版本
 使用命令 git checkout commitid <file>
+
 2. 将工作区中的所有文件的内容还原为某个提交版本
 使用命令 git reset --hard commitid
 HEAD 表示当前指针头部的commitid
 HEAD^ 表示当前指针头部沿着提交链条往前移动一次
 HEAD~ 表示当前指针头部沿着提交链条往前移动一次
 HEAD~n 表示当前指针头部沿着提交链条往前移动n次
-3. 查看最新的git提交操作
+
+3. 还原那些误删除的有效文件
+如果误操作删除了本来不该删除的文件
+使用 git status -s 会发现文件前面有个 D 符号
+此时可以通过使用 git checkout <file> 将误删除的文件重新找回来
+
+4. 查看最新的git提交操作
 使用命令 git reflog
+
 
 ## 文件更名
 如果有文件需要更名 使用命令 git mv oldfile newfile
