@@ -5,4 +5,6 @@ div{
 	position: relative;
 	bottom: 10px;
 	left: 0;
+	cursor: pointer;
+	text-align: center;
 }
