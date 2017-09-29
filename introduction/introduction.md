@@ -5,6 +5,8 @@ git clone <remote address>
 
 ## .gitignore文件
 .gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中
+*~ 表示以~结尾的临时文件
+log/\*.log 表示log文件夹下以log为扩展名的所有文件
 
 ## 如何查看项目状态
 使用命令 git status
@@ -45,6 +47,12 @@ git add .
 ### 查看工作区与版本库之间的差异
 使用命令 git diff <branchName>
 
+### 如何使用插件更好地展示差异
+使用命令 git difftool --tool -help
+先查看当前系统中所支持的Git Diff插件
+使用命令 git difftool --tool=<plugin>
+
+
 ## git的撤销
 撤销分为三种情形
 1. 从暂存区中撤销
@@ -60,6 +68,10 @@ git add .
 
 ## 查看提交记录
 使用命令 git log
+添加参数 -p 可以查看每次提交时的差异
+添加参数 -N 可以查看最近N次的提交记录
+添加参数 --stat 可以查看每次提交时的文件变化统计
+添加参数 --pretty 可以指定信息显示的不同方式 如 oneline short full fuller
 
 ## 删除文件
 删除文件也分三种情形
@@ -82,6 +94,10 @@ HEAD~n 表示当前指针头部沿着提交链条往前移动n次
 3. 查看最新的git提交操作
 使用命令 git reflog
 
+## 文件更名
+如果有文件需要更名 使用命令 git mv oldfile newfile
+
+
 ## 代码上传
 如何将代码上传到github的远程仓库中
 使用命令 git push
@@ -91,11 +107,9 @@ git remote 查看远程仓库的名字
 将本地branch分支上的内容上传到远程仓库中
 
 ## 从远程仓库如何拉取新的更新代码
-使用命令 git fetch
+一、使用命令 git fetch
 使用该命令之后接着使用 git diff <local-branch> <repository/branch>查看本地代码与远程仓库代码的区别
 通过手动修改代码解决两者之间的冲突
 最后使用命令 git merge <repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件
 
-使用命令 git pull
-
-##
+二、使用命令 git pull
