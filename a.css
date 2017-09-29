@@ -1,8 +1,16 @@
 div{
-	width: 100px;
-	height: 100px;
+	width: 200px;
+	height: 200px;
 	background-color: red;
 	position: relative;
 	bottom: 10px;
 	left: 20px;
+	cursor: pointer;
+	text-align: right;
+	color: blue;
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	     -o-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 }
