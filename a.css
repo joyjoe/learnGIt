@@ -3,6 +3,6 @@ div{
 	height: 100px;
 	background-color: red;
 	position: relative;
-	left: 30px;
 	bottom: 10px;
+	left: 0;
 }
