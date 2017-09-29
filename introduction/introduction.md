@@ -60,7 +60,6 @@ git add .
 这样操作之后就会将暂存区中指定的文件还原回工作区 也就是说该文件的改动记录不会被保存记录
 2. 从工作区中撤销
 使用命令 git checkout -- <file>
-这样操作之后就会将工作区中指定的文件修改内容还原 也就是说文件内容会与版本库中的文件内容一致 // error
 这样操作之后就会将工作区中指定的文件修改内容还原到与暂存区中的文件内容一致
 3. 撤销上一次的提交
 使用命令 git commit -m 'description' --amend
@@ -107,9 +106,9 @@ git remote 查看远程仓库的名字
 将本地branch分支上的内容上传到远程仓库中
 
 ## 从远程仓库如何拉取新的更新代码
-一、使用命令 git fetch
+### 使用命令 git fetch
 使用该命令之后接着使用 git diff <local-branch> <repository/branch>查看本地代码与远程仓库代码的区别
 通过手动修改代码解决两者之间的冲突
 最后使用命令 git merge <repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件
 
-二、使用命令 git pull
+### 使用命令 git pull
