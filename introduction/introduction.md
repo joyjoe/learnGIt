@@ -3,6 +3,11 @@
 使用命令 git clone
 git clone <remote address>
 
+## 配置git
+git配置中最重要的两条
+git config --global user.name
+git config --global user.email
+
 ## .gitignore文件
 .gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中
 *~ 表示以~结尾的临时文件
@@ -71,6 +76,8 @@ git add .
 添加参数 -N 可以查看最近N次的提交记录
 添加参数 --stat 可以查看每次提交时的文件变化统计
 添加参数 --pretty 可以指定信息显示的不同方式 如 oneline short full fuller
+### 如果需要查看某一次提交的详细信息
+使用命令 git show commitID
 
 ## 删除文件
 删除文件也分三种情形
