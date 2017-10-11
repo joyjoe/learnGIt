@@ -76,6 +76,7 @@ git add .
 添加参数 -N 可以查看最近N次的提交记录
 添加参数 --stat 可以查看每次提交时的文件变化统计
 添加参数 --pretty 可以指定信息显示的不同方式 如 oneline short full fuller
+添加参数 --graph 可以查看分支合并图
 ### 如果需要查看某一次提交的详细信息
 使用命令 git show commitID
 
@@ -111,14 +112,18 @@ HEAD~n 表示当前指针头部沿着提交链条往前移动n次
 ## 文件更名
 如果有文件需要更名 使用命令 git mv oldfile newfile
 
+## 如何将本地仓库关联到远程仓库上
+使用 git remote add <remoteRepository> <remoteRepositoryUrl>
 
 ## 代码上传
 如何将代码上传到github的远程仓库中
-使用命令 git push
+使用命令 git push 如果是第一次上传则添加 -u 参数
 先通过 git remote -v查看远程仓库信息
 git remote 查看远程仓库的名字
 再通过git push <repository> <branch>
 将本地branch分支上的内容上传到远程仓库中
+git push -u origin master
+表示将本地仓库的master分支同步到远程一个名叫origin的仓库master分支上
 
 ## 从远程仓库如何拉取新的更新代码
 ### 使用命令 git fetch
@@ -127,3 +132,38 @@ git remote 查看远程仓库的名字
 最后使用命令 git merge <repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件
 
 ### 使用命令 git pull
+
+
+git diff HEAD -- filename
+
+
+## git分支管理
+git创建分支命令 git branch <branchName>
+git切换分支命令 git checkout <branchName>
+两个命令可以合并成一个命令 git checkout -b <branchName>
+查看当前仓库里的分支,使用命令 git checkout 当前分支前面会有一个星号※
+删除分支命令 git branch -d <branchName>
+强行删除分支命令 git branch -D <branchName>
+
+合并某分支到当前分支上使用命令 git merge <branchName>
+
+创建本地分支的同时也关联到远程仓库的某个分支 使用命令
+git checkout -b <branchName> <remoteRepositoryName/branchName>
+如何将本地分支与远程仓库中某个分支相互关联
+git branch --set-upstream <branchName> <remoteRepositoryName/branchName>
+
+
+## 解决分支合并时的冲突问题
+使用git merge合并分支时，如果出现冲突，系统会提示CONFLICT。此时可以通过git status查看发生冲突的文件。然后修改文件内容以解决冲突。
+
+## 分支合并的技巧
+git merge合并分支，git会优先选择fast-forward模式。这样当删除掉合并分支后，该分支的所有消息都会消失。
+这时候可以使用--no-ff参数，命令语法
+git merge --no-ff -m 'commit info' <branchName>
+表示master分支会多出一个提交id
+
+## 保存快照
+如果你遇到下列情况就可以考虑使用该功能：当你正在自己的分支上搬砖时，突然有领导要求你赶紧放下手头工作去修复一个bug。可是你当前搬的砖还不够提交的，怎么办？此时就可以使用git stash命令保存你的快照。然后切换到别的分支上去搬砖。
+当你重新回到自己的分支上时，可以使用git stash list查看当前的所有快照。
+接着可以使用git stash apply将快照进行恢复，或者使用git stash pop取出快照。
+区别在于，前者需要使用git stash drop来删除快照。
