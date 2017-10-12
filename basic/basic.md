@@ -1,17 +1,20 @@
 # 入门级操作
-* 创建版本库
-  * 本地创建
-  * 克隆创建<br>
-    ###### 如何从github上克隆项目到本地电脑
-        git clone
-        git clone <remote address>
-
-* 配置git<br>
-    ###### git配置中最重要的两条
-        git config --global user.name
-        git config --global user.email
-
-* .gitignore文件<br>
+## 配置git
+git配置中最重要的两条
+```
+git config --global user.name
+git config --global user.email
+```
+## 创建版本库
+* 本地创建<br>
+`git init`
+* 克隆创建<br>
+如何从github上克隆项目到本地电脑<br>
+```
+    git clone
+    git clone <remote address>
+```
+* .gitignore文件
 .gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中<br>
 *~ 表示以~结尾的临时文件<br>
 log/\*.log 表示log文件夹下以log为扩展名的所有文件
