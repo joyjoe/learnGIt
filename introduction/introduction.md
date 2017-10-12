@@ -1,70 +1,73 @@
-#introduction
-## 如何从github上克隆项目到本地电脑
-使用命令 git clone
-git clone <remote address>
+# introduction
+## 入门级操作
+* 创建版本库
+	* 本地创建
+	* 克隆创建<br>
+		如何从github上克隆项目到本地电脑 <br>
+			`git clone`<br>
+			`git clone \<remote address>`<br>
+		
+* 配置git<br>
+git配置中最重要的两条<br>
+	```git config --global user.name```<br>
+	```git config --global user.email```
 
-## 配置git
-git配置中最重要的两条
-git config --global user.name
-git config --global user.email
-
-## .gitignore文件
-.gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中
-*~ 表示以~结尾的临时文件
-log/\*.log 表示log文件夹下以log为扩展名的所有文件
+* .gitignore文件<br>
+.gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中<br>
+*~ 表示以~结尾的临时文件<br>
+log/\*.log 表示log文件夹下以log为扩展名的所有文件<br>
 
 ## 如何查看项目状态
-使用命令 git status
-如果只需要简略查看项目状态可以添加参数 -s
-使用命令 git status -s 或者 git status --short
-运行结果中各字符的含义
-?? 表示该文件是新增的，还没有被跟踪
-A  表示新添加到暂存区的文件
-_M 表示该文件在工作区中被修改过，但是还没有被加入到暂存区中
-M_ 表示该文件在工作区中被修改过，并且被加入到暂存区中
-MM 表示该文件在修改并提交到暂存区之后，又在工作区中被修改过
+使用命令 git status<br>
+如果只需要简略查看项目状态可以添加参数 -s<br>
+使用命令 git status -s 或者 git status --short<br>
+运行结果中各字符的含义<br>
+?? 表示该文件是新增的，还没有被跟踪<br>
+A  表示新添加到暂存区的文件<br>
+_M 表示该文件在工作区中被修改过，但是还没有被加入到暂存区中<br>
+M_ 表示该文件在工作区中被修改过，并且被加入到暂存区中<br>
+MM 表示该文件在修改并提交到暂存区之后，又在工作区中被修改过<br>
 
 
 ## git的文件存储原理
-文件存储分三个区域: 工作区、暂存区、版本库
-工作区中所有的文件改动都需要先经过暂存区再放入版本库中
+文件存储分三个区域: 工作区、暂存区、版本库<br>
+工作区中所有的文件改动都需要先经过暂存区再放入版本库中<br>
 
 ### 工作区到暂存区
-使用命令 git add
-git add <file>
-git add .
+使用命令 git add<br>
+git add \<file><br>
+git add .<br>
 
 ### 提交到版本库
-提交到版本库分两种情形
-1. 将工作区中的文件修改内容保存在暂存区中之后再提交到版本库中
-使用命令 git commit -m ''
-2. 直接将工作区中的文件修改内容跳过暂存区而直接提交到版本库中
-使用命令 git commit -a -m ''
+提交到版本库分两种情形<br>
+1. 将工作区中的文件修改内容保存在暂存区中之后再提交到版本库中<br>
+	git commit -m ''<br>
+2. 直接将工作区中的文件修改内容`跳过暂存区`而`直接提交到版本库`中<br>
+	git commit -a -m ''<br>
 
 ## 如何查看各个区域之间的差异
 ### 查看工作区与暂存区之间的差异
-使用命令 git diff
+	git diff
 
 ### 查看暂存区与版本库之间的差异
-使用命令 git diff --cached
-        git diff --staged
+	git diff --cached
+	git diff --staged
 
 ### 查看工作区与版本库之间的差异
-使用命令 git diff <branchName>
+	git diff <branchName>
 
-### 如何使用插件更好地展示差异
-使用命令 git difftool --tool -help
-先查看当前系统中所支持的Git Diff插件
-使用命令 git difftool --tool=<plugin>
-
+### 使用插件更好地展示差异  
+	git difftool --tool -help
+如何查看当前系统中所支持的Git Diff插件<br>  
+	```git difftool --tool=\<plugin>```<br>
 
 ## git的撤销
 撤销分为三种情形
 1. 从暂存区中撤销
-使用命令 git reset HEAD <file>
+使用命令 git reset HEAD \<file>
 这样操作之后就会将暂存区中指定的文件还原回工作区 也就是说该文件的改动记录不会被保存记录
 2. 从工作区中撤销
-使用命令 git checkout -- <file>
+使用命令 git checkout -- \<file>
 这样操作之后就会将工作区中指定的文件修改内容还原到与暂存区中的文件内容一致
 3. 撤销上一次的提交
 使用命令 git commit -m 'description' --amend
@@ -83,15 +86,15 @@ git add .
 ## 删除文件
 删除文件也分三种情形
 1. 从暂存区中删除已经在工作区中不存在的文件
-使用命令 git rm <file>
+使用命令 git rm \<file>
 2. 从暂存区和工作区中均删除工作区中存在的文件
-使用命令 git rm -f <file>
+使用命令 git rm -f \<file>
 3. 从暂存区中删除已提交暂存的工作区文件
-使用命令 git rm --cached <file>
+使用命令 git rm --cached \<file>
 
 ## git的还原
 1. 将工作区中的某个文件的内容还原为某个提交版本
-使用命令 git checkout commitid <file>
+使用命令 git checkout commitid \<file>
 
 2. 将工作区中的所有文件的内容还原为某个提交版本
 使用命令 git reset --hard commitid
@@ -103,7 +106,7 @@ HEAD~n 表示当前指针头部沿着提交链条往前移动n次
 3. 还原那些误删除的有效文件
 如果误操作删除了本来不该删除的文件
 使用 git status -s 会发现文件前面有个 D 符号
-此时可以通过使用 git checkout <file> 将误删除的文件重新找回来
+此时可以通过使用 git checkout \<file> 将误删除的文件重新找回来
 
 4. 查看最新的git提交操作
 使用命令 git reflog
@@ -113,23 +116,23 @@ HEAD~n 表示当前指针头部沿着提交链条往前移动n次
 如果有文件需要更名 使用命令 git mv oldfile newfile
 
 ## 如何将本地仓库关联到远程仓库上
-使用 git remote add <remoteRepository> <remoteRepositoryUrl>
+使用 git remote add \<remoteRepository> \<remoteRepositoryUrl>
 
 ## 代码上传
 如何将代码上传到github的远程仓库中
 使用命令 git push 如果是第一次上传则添加 -u 参数
 先通过 git remote -v查看远程仓库信息
 git remote 查看远程仓库的名字
-再通过git push <repository> <branch>
+再通过git push \<repository> \<branch>
 将本地branch分支上的内容上传到远程仓库中
 git push -u origin master
 表示将本地仓库的master分支同步到远程一个名叫origin的仓库master分支上
 
 ## 从远程仓库如何拉取新的更新代码
 ### 使用命令 git fetch
-使用该命令之后接着使用 git diff <local-branch> <repository/branch>查看本地代码与远程仓库代码的区别
+使用该命令之后接着使用 git diff \<local-branch> \<repository/branch>查看本地代码与远程仓库代码的区别
 通过手动修改代码解决两者之间的冲突
-最后使用命令 git merge <repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件
+最后使用命令 git merge \<repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件
 
 ### 使用命令 git pull
 
@@ -138,19 +141,19 @@ git diff HEAD -- filename
 
 
 ## git分支管理
-git创建分支命令 git branch <branchName>
-git切换分支命令 git checkout <branchName>
-两个命令可以合并成一个命令 git checkout -b <branchName>
+git创建分支命令 git branch \<branchName>
+git切换分支命令 git checkout \<branchName>
+两个命令可以合并成一个命令 git checkout -b \<branchName>
 查看当前仓库里的分支,使用命令 git checkout 当前分支前面会有一个星号※
-删除分支命令 git branch -d <branchName>
-强行删除分支命令 git branch -D <branchName>
+删除分支命令 git branch -d \<branchName>
+强行删除分支命令 git branch -D \<branchName>
 
-合并某分支到当前分支上使用命令 git merge <branchName>
+合并某分支到当前分支上使用命令 git merge \<branchName>
 
 创建本地分支的同时也关联到远程仓库的某个分支 使用命令
-git checkout -b <branchName> <remoteRepositoryName/branchName>
+git checkout -b \<branchName> \<remoteRepositoryName/branchName>
 如何将本地分支与远程仓库中某个分支相互关联
-git branch --set-upstream <branchName> <remoteRepositoryName/branchName>
+git branch --set-upstream \<branchName> \<remoteRepositoryName/branchName>
 
 
 ## 解决分支合并时的冲突问题
@@ -159,7 +162,7 @@ git branch --set-upstream <branchName> <remoteRepositoryName/branchName>
 ## 分支合并的技巧
 git merge合并分支，git会优先选择fast-forward模式。这样当删除掉合并分支后，该分支的所有消息都会消失。
 这时候可以使用--no-ff参数，命令语法
-git merge --no-ff -m 'commit info' <branchName>
+git merge --no-ff -m 'commit info' \<branchName>
 表示master分支会多出一个提交id
 
 ## 保存快照
@@ -167,3 +170,6 @@ git merge --no-ff -m 'commit info' <branchName>
 当你重新回到自己的分支上时，可以使用git stash list查看当前的所有快照。
 接着可以使用git stash apply将快照进行恢复，或者使用git stash pop取出快照。
 区别在于，前者需要使用git stash drop来删除快照。
+
+更多git教程内容请参考<br>
+[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 "最浅显易懂的Git教程")
