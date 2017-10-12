@@ -1,16 +1,19 @@
 # 入门级操作
-* 创建版本库
-  * 本地创建
-  * 克隆创建<br>
-    ###### 如何从github上克隆项目到本地电脑
-        git clone
-        git clone <remote address>
-
-* 配置git<br>
-    ###### git配置中最重要的两条
-        git config --global user.name
-        git config --global user.email
-
+## 配置git
+git配置中最重要的两条
+```
+git config --global user.name
+git config --global user.email
+```
+## 创建版本库
+* 本地创建<br>
+`git init`
+* 克隆创建<br>
+如何从github上克隆项目到本地电脑<br>
+```
+    git clone
+    git clone <remote address>
+```
 * .gitignore文件<br>
 .gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中<br>
 *~ 表示以~结尾的临时文件<br>
@@ -28,10 +31,9 @@ log/\*.log 表示log文件夹下以log为扩展名的所有文件
 `MM`表示该文件在修改并提交到暂存区之后，又在工作区中被修改过<br>
 
 ## git的文件存储原理
-    文件存储分三个区域: **`工作区`**、**`暂存区`**、**`版本库`**
-    工作区中所有的文件改动都需要先经过暂存区再放入版本库中
-### 工作区到暂存区
-    git add
+文件存储分三个区域: **`工作区`**、**`暂存区`**、**`版本库`**
+工作区中所有的文件改动都需要先经过暂存区再放入版本库中
+### 将工作区的变化存储到暂存区
     git add <file>
     git add .
 ### 提交到版本库
@@ -44,7 +46,7 @@ log/\*.log 表示log文件夹下以log为扩展名的所有文件
 ## 如何查看各个区域之间的差异
 ### 查看工作区与暂存区之间的差异
     git diff
-
+    git diff HEAD -- filename
 ### 查看暂存区与版本库之间的差异
     git diff --cached
     git diff --staged
@@ -53,9 +55,13 @@ log/\*.log 表示log文件夹下以log为扩展名的所有文件
     git diff <branchName>
 
 ### 使用插件更好地展示差异
-    git difftool --tool -help
+```
+git difftool --tool -help
+```
 如何查看当前系统中所支持的Git Diff插件<br>
-    ```git difftool --tool=\<plugin>```<br>
+```
+git difftool --tool=\<plugin>
+```
 
 ## git的撤销
 撤销分为三种情形
@@ -133,9 +139,6 @@ git push -u origin master
 最后使用命令 git merge \<repository/branch> 来合并不同仓库中的代码以达到可以使用git push操作的条件<br>
 
 ### 使用命令 git pull
-
-
-git diff HEAD -- filename
 
 
 ## git分支管理
