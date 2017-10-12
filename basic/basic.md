@@ -13,8 +13,8 @@ git init
 * 克隆创建<br>
 如何从github上克隆项目到本地电脑<br>
 ```
-    git clone
-    git clone <remote address>
+git clone
+git clone <remote address>
 ```
 * .gitignore文件<br>
 .gitignore文件的作用是可以配置哪些文件不会被加入到版本控制中<br>
