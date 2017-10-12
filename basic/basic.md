@@ -11,7 +11,7 @@ git config --global user.email
 git init
 ```
 * 克隆创建<br>
-如何从github上克隆项目到本地电脑<br>
+如何从github上克隆项目到本地电脑
 ```
 git clone
 git clone <remote address>
