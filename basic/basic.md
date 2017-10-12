@@ -7,7 +7,9 @@ git config --global user.email
 ```
 ## 创建版本库
 * 本地创建<br>
-```git init```
+```
+git init
+```
 * 克隆创建<br>
 如何从github上克隆项目到本地电脑<br>
 ```
@@ -39,10 +41,13 @@ log/\*.log 表示log文件夹下以log为扩展名的所有文件
 ### 提交到版本库
 提交到版本库分两种情形<br>
 1. 将工作区中的文件修改内容保存在暂存区中之后再提交到版本库中<br>
-    git commit -m 'description'<br>
+```
+git commit -m 'description'
+```
 2. 直接将工作区中的文件修改内容`跳过暂存区`而`直接提交到版本库`中<br>
-    git commit -a -m 'description'<br>
-
+```
+git commit -a -m 'description'<br>
+```
 ## 如何查看各个区域之间的差异
 ### 查看工作区与暂存区之间的差异
     git diff
@@ -76,7 +81,7 @@ git difftool --tool=<plugin>
 将上一次的commit操作撤销 然后与本次修改的内容一起进行提交
 
 ## 查看提交记录
-使用命令 git log<br>
+使用命令 `git log`<br>
 添加参数 `-p` 可以查看每次提交时的差异<br>
 添加参数 `-N` 可以查看最近N次的提交记录<br>
 添加参数 `--stat` 可以查看每次提交时的文件变化统计<br>
@@ -88,7 +93,7 @@ git difftool --tool=<plugin>
 ## 删除文件
 * 分三种情形
 1. 从暂存区中删除已经在工作区中不存在的文件<br>
-`git rm \<file>`
+`git rm <file>`
 2. 从暂存区和工作区中均删除工作区中存在的文件<br>
 `git rm -f <file>`
 3. 从暂存区中删除已提交暂存的工作区文件<br>
@@ -160,7 +165,7 @@ git切换分支命令 `git checkout <branchName>`<br>
 
 ## 分支合并的技巧
 合并分支时，git会优先选择`fast-forward`模式。这样当删除掉合并分支后，该分支的所有消息都会消失。<br>
-这时候可以使用--no-ff参数<br>
+这时候可以使用`--no-ff`参数<br>
 `git merge --no-ff -m 'commit info' <branchName>`表示master分支会多出一个提交id<br>
 
 ## 保存快照
