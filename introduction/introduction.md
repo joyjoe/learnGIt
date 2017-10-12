@@ -174,5 +174,6 @@ git切换分支命令 `git checkout <branchName>`<br>
 区别在于，前者需要使用`git stash drop`来删除快照。<br>
 
 <hr>
-更多git教程内容请参考<br>
-[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/ "最浅显易懂的Git教程")
+更多git教程内容请参考[廖雪峰Git教程][1]
+
+[1]: https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 "浅显易懂的Git教程"
